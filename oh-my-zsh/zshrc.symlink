@@ -1,0 +1,76 @@
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/alockwood/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="agnoster"
+DEFAULT_USER="alockwood"
+
+source $ZSH/oh-my-zsh.sh
+
+# shortcut to this dotfiles path is $DOTFILES
+export DOTFILES=$HOME/.dotfiles
+
+# folder for projects (sites)
+export PROJECTS="~/Sites"
+
+# all of our path files
+for file in $(find $DOTFILES -name 'path.sh'); 
+do
+    source $file
+done
+
+# Does what you wanted to do when you mispell a command
+if type thefuck > /dev/null; then
+    eval "$(thefuck --alias)"
+fi
+
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
+
+if ! zgen saved; then
+    echo "Creating a zgen save"
+    zgen oh-my-zsh
+
+    # Plugins
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/sudo
+    zgen oh-my-zsh plugins/command-not-found
+    zgen oh-my-zsh plugins/bundler
+    zgen oh-my-zsh plugins/brew
+    zgen oh-my-zsh plugins/gem
+    zgen load mafredri/zsh-async
+    zgen load zsh-users/zsh-completions
+    # This plugin should be loaded last
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    zgen save
+fi
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# all of our alias files
+for file in $(find $DOTFILES -name 'aliases.sh'); 
+do
+    source $file
+done
+
+# Better history
+# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+# for Homebrew installed rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
