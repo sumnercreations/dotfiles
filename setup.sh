@@ -137,6 +137,8 @@ set_default_shell () {
 add_symlinks
 # generate_ssh_key
 set_default_shell
+# Add /bin to $PATH
+export PATH=$PATH:~/.dotfiles/bin
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
