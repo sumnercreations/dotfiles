@@ -74,3 +74,7 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 # for Homebrew installed rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# set environment variables for GPG (needed to sign git commits)
+export GPG_TTY=$(tty)
+
