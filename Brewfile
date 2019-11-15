@@ -4,6 +4,7 @@ tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
 
 brew 'ack'
+brew 'composer'
 brew 'coreutils'
 brew 'go'
 brew 'grc'

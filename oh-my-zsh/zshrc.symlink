@@ -78,3 +78,5 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # set environment variables for GPG (needed to sign git commits)
 export GPG_TTY=$(tty)
 
+# add flutter to the path variable
+export PATH="$PATH:/Users/alockwood/Developer/flutter/bin"
