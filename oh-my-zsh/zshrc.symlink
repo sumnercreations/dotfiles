@@ -13,8 +13,8 @@ source $ZSH/oh-my-zsh.sh
 # shortcut to this dotfiles path is $DOTFILES
 export DOTFILES=$HOME/.dotfiles
 
-# folder for projects (sites)
-export PROJECTS=~/Sites
+# folder for sites
+export SITES=~/Sites
 
 # all of our path files
 for file in $(find $DOTFILES -name 'path.sh'); 
