@@ -116,9 +116,9 @@ add_symlinks () {
 
 # Check for a SSH key, generate a new one if it doesn't exist
 generate_ssh_key () {
-  pub=$HOME/.ssh/id_rsa.pub
+  pub=$HOME/.ssh/id_ed25519.pub
   info 'Checking for SSH key, generating one if it does not exist...'
-    [[ -f $pub ]] || ssh-keygen -t rsa
+    [[ -f $pub ]] || ssh-keygen -t ed25519 -C "ammon.lockwood@gmail.com"
 
   info 'Copying public key to clipboard. Paste it into your Github account...'
     [[ -f $pub ]] && cat $pub | pbcopy

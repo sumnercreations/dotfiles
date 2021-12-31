@@ -10,3 +10,5 @@ export PATH=/Users/$USER/Developer/flutter/bin:$PATH
 export PATH=/Users/$USER/Developer/flutter/.pub-cache/bin:$PATH
 export PATH=/Users/$USER/Developer/flutter/bin/cache/dart-sdk/bin:$PATH
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+# FVM
+export PATH=/Users/$USER/fvm/default/bin:$PATH

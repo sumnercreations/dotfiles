@@ -9,8 +9,5 @@ then
   alias la='gls -A --color'
 fi
 
-alias dev="cd ~/Developer/"
-alias sites="cd ~/Sites/"
-
-# NAV
-alias nav="cd ~/Sites/nav/wp/wp-content/themes/nav-2015"
+alias nav="cd ~/nav"
+alias dotfiles="cd ~/.dotfiles"

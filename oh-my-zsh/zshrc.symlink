@@ -1,20 +1,20 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/alockwood/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
+
+# Disable the completion check on insecure system folders
+ZSH_DISABLE_COMPFIX=true
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
-DEFAULT_USER="alockwood"
+DEFAULT_USER=`whoami`
 
 source $ZSH/oh-my-zsh.sh
 
 # shortcut to this dotfiles path is $DOTFILES
 export DOTFILES=$HOME/.dotfiles
-
-# folder for projects (sites)
-export PROJECTS=~/Sites
 
 # all of our path files
 for file in $(find $DOTFILES -name 'path.sh'); 
@@ -78,3 +78,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # set environment variables for GPG (needed to sign git commits)
 export GPG_TTY=$(tty)
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+NAV_REGISTRY_TOKEN=XKtSxa28s9ittJ17bvzp
